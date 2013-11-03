@@ -13,6 +13,9 @@
     "eventproxy":"*",
     "mongoose":"3.8.0",
     "validator":"2.0.0",
-    "utility":"0.0.x"
+    "utility":"0.0.x",
+    "xss": "0.0.5",
+    "express-partials" : "*",
+    "connect-flash":"*"
   }
 }
