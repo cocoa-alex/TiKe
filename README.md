@@ -4,12 +4,21 @@ This is my first Node.js project.It use the framework of express. Tike let the s
 ==============
 
 # How to use it
-At first you need to install the **`Node.js`** and **`mongoDB`**
+At first you need to install the `Node.js` and `mongoDB`
 
 Then:
 
+Open the Terminal  and enter the follwing code
 
+` cd /xx/xx/xx/TiKe`
 
+Next
+
+`node app` or `node app.js`
+
+In your browser,enter `localhost:3000`  it works
+
+================
 
 #License
 
