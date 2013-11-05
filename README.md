@@ -1,8 +1,15 @@
-# TaoKe
-
-This is my first Node.js project.It used the framework express.Taoke is be useful the student for having free time to do they wanna do!
+# TiKe
+This is my first Node.js project.It use the framework of express. Tike let the students for having free time to do they wanna do!
 
 ==============
+
+# How to use it
+At first you need to install the **`Node.js`** and **`mongoDB`**
+
+Then:
+
+
+
 
 #License
 

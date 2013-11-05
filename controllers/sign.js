@@ -12,22 +12,22 @@ exports.showRegister=function(req,res){
 
 exports.registerUser=function(req,res,next){
     var name=sanitize(req.body.name).trim();
-    name=sanitize(name).xss();
+    //name=sanitize(name).xss();
     var loginname=name.toLowerCase();
     var pass=sanitize(req.body.pass).trim();
-    pass=sanitize(pass).xss();
+    //pass=sanitize(pass).xss();
     
     var email=sanitize(req.body.email).trim();
     email=email.toLowerCase();
-    email=sanitize(email).xss();
+    //email=sanitize(email).xss();
     
-    var pass1=saitize(req.body.pass1).trim();
-    pass1=sanitize(pass1).xss();
+    var pass1=sanitize(req.body.pass1).trim();
+    //pass1=sanitize(pass1).xss();
     
     //TODO: validator the number of phone
-    var phone=saitize(req.body.phone).trim();
-    phone=sanitize(phone).xss();
-    console.log(name);
+    var phone=sanitize(req.body.phone).trim();
+    //phone=sanitize(phone).xss();
+    
     if(name==''||pass==''||pass1==''||email==''){
         res.render('signup',{error:'信息不完整',name:name,email:email});
         return;
@@ -50,7 +50,7 @@ exports.registerUser=function(req,res,next){
         return;
     }
     
-    User.getUsersByQuery({'$or':[{'loginname':loginname},{'email':email}]},{},function(err,users){
+    User.getUsersByQuery({'email': email}, {}, function (err, users) {
         if(err){
             return next(err);
         }

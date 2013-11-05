@@ -102,13 +102,13 @@ exports.getUserByQuery = function (name, key, callback) {
   User.findOne({name: name, retrieve_key: key}, callback);
 };
 
-exports.newAndSave = function (name, loginname, pass,phone, email, active, callback) {
+exports.newAndSave = function (name, loginname, pass, email, avatar_url, active, callback) {
   var user = new User();
   user.name = name;
   user.loginname = loginname;
   user.pass = pass;
-  user.phone=phone;
   user.email = email;
+  user.avatar = avatar_url;
   user.active = false;
   user.save(callback);
 };
