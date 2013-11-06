@@ -50,26 +50,30 @@ exports.registerUser=function(req,res,next){
         return;
     }
     
-    User.getUsersByQuery({'email': email}, {}, function (err, users) {
-        if(err){
+    
+     User.getUsersByQuery('.or([{loginname: loginname},{email:email}])', function (err, users) {
+        if (err) {
             return next(err);
         }
-        if(users.length>0){
+        if (users.length > 0) {
             res.render('signup', {error: '用户名或邮箱已被使用。', name: name, email: email});
             return;
         }
+    
+        // md5 the pass
+        pass = md5(pass);
+        // create gavatar
+        //var avatar_url = 'http://www.gravatar.com/avatar/' + md5(email.toLowerCase()) + '?size=48';
         
-        pass=md5(pass);
-        
-        User.newAndSave(name,loginname,pass,email,phone,false,function(err){
-            if(err){
-                return next(err);
-            }
-            
-            //TODO: success
-            res.render('signup',{
-            success:'欢迎加入'+settings.name+'!我们屠户不过给您的注册邮箱发了一封邮件，请点击里面的链接来激活账号！'
+        User.newAndSave(name, loginname, pass, email,phone, false, function (err) {
+            if (err) {
+            return next(err);
+        }
+        // 发送激活邮件
+        //mail.sendActiveMail(email, md5(email + config.session_secret), name, email);
+        res.render('signup', {
+                success: '欢迎加入 ' + settings.name + '！我们已给您的注册邮箱发送了一封邮件，请点击里面的链接来激活您的帐号。'
             });
         });
     });
-}
+};

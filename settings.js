@@ -29,7 +29,8 @@ module.exports = {
 
   upload_dir: path.join(__dirname, 'public', 'user_data', 'images'),
 
-  db: 'tikebar',
+  db: 'mongodb://127.0.0.1:27017/tikebar',
+  db_name:'tikebar',
   session_secret: 'tikebar',
   auth_cookie_name: 'tikeba',
   port: 3000,

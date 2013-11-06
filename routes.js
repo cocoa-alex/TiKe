@@ -6,4 +6,5 @@ module.exports=function(app){
     
     app.get('/register',reg.showRegister);
     app.post('/register',reg.registerUser);
+    //app.post('/register',reg.test);
 };

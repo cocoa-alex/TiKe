@@ -11,10 +11,12 @@ var settings=require('./settings');
 var partials=require('express-partials');
 var flash=require('connect-flash');
 var app = express();
+var mongoose=require('mongoose');
 
+mongoose.connect(settings.db);
 var MongoStore=require('connect-mongo')(express);
 var sessionStore=new MongoStore({
-    db:settings.db
+    db:settings.db_name
 },function(){
     console.log('connect mongodb success');
 });

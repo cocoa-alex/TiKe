@@ -85,8 +85,8 @@ exports.getUsersByIds = function (ids, callback) {
  * @param {Object} opt 选项
  * @param {Function} callback 回调函数
  */
-exports.getUsersByQuery = function (query, opt, callback) {
-  User.find(query, [], opt, callback);
+exports.getUsersByQuery = function (query,callback) {
+  User.find(query, callback);
 };
 
 /**
@@ -102,13 +102,13 @@ exports.getUserByQuery = function (name, key, callback) {
   User.findOne({name: name, retrieve_key: key}, callback);
 };
 
-exports.newAndSave = function (name, loginname, pass, email, avatar_url, active, callback) {
+exports.newAndSave = function (name, loginname, pass, email,phone, active,callback) {
   var user = new User();
   user.name = name;
   user.loginname = loginname;
   user.pass = pass;
   user.email = email;
-  user.avatar = avatar_url;
+  user.phone=phone;
   user.active = false;
   user.save(callback);
 };
