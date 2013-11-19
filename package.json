@@ -17,5 +17,8 @@
     "xss": "0.0.5",
     "express-partials" : "*",
     "connect-flash":"*"
+  },
+  "scripts": {
+    "test":"make test"
   }
 }

@@ -86,6 +86,10 @@ exports.getUsersByIds = function (ids, callback) {
  * @param {Function} callback 回调函数
  */
 exports.getUsersByQuery = function (query,callback) {
+  
+  //User.find({$or:[{"name":"alex111"},{"email":"111111.163.com"}]}, callback);
+  var e=User.or([{"name":"alex111"},{"email":"111111.163.com"}])
+  console.log(e);
   User.find(query, callback);
 };
 

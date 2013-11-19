@@ -1,7 +1,7 @@
-# TiKe
+# TiKe [![Build Status](https://travis-ci.org/greengerong/qing.png?branch=master)](https://travis-ci.org/greengerong/qing)
 This is my first Node.js project.It use the framework of express. Tike let the students for having free time to do they wanna do!
 
-==============
+
 
 # How to use it
 At first you need to install the `Node.js` and `mongoDB`
@@ -18,11 +18,9 @@ Next
 
 In your browser,enter `localhost:3000`  it works
 
-================
+
 
 #License
-
-==============
 
 ( The MIT License )
 

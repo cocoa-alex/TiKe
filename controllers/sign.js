@@ -51,10 +51,10 @@ exports.registerUser=function(req,res,next){
     }
     
     
-     User.getUsersByQuery('.or([{loginname: loginname},{email:email}])', function (err, users) {
+     User.getUsersByQuery('$or([{"loginname":"'+ loginname+'"},{"email":"'+email+'"}])', function (err, users) {
         if (err) {
             return next(err);
-        }
+        }        
         if (users.length > 0) {
             res.render('signup', {error: '用户名或邮箱已被使用。', name: name, email: email});
             return;
@@ -77,3 +77,11 @@ exports.registerUser=function(req,res,next){
         });
     });
 };
+
+
+function md5(str){
+    var md5sum=crypto.createHash('md5');
+    md5sum.update(str);
+    str=md5sum.digest('alex');
+    return str;
+}

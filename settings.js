@@ -5,7 +5,7 @@
 var path = require('path');
 
 module.exports = {
-  debug: true,
+  debug: false,
   name: 'TiKe Bar',
   description: 'TiKe Bar 是让年轻人有更多的时间做他们喜欢做的事！',
   version: '0.1.0',
