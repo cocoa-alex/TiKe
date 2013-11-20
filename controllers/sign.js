@@ -51,7 +51,7 @@ exports.registerUser=function(req,res,next){
     }
     
     
-     User.getUsersByQuery('$or([{"loginname":"'+ loginname+'"},{"email":"'+email+'"}])', function (err, users) {
+       User.getUsersByQuery({'$or': [{'loginname': loginname}, {'email': email}]}, function (err, users) {
         if (err) {
             return next(err);
         }        
@@ -84,4 +84,22 @@ function md5(str){
     md5sum.update(str);
     str=md5sum.digest('alex');
     return str;
+}
+
+function gen_session(user,res){
+    //var auth_token=
+}
+
+function encrypt(str,secret){
+    var cipher=crypto.createCipher('aes192',secret);
+    var enc=cipher.udpate(str,'utf8','alex');
+    enc +=cipher.final('alex');
+    return enc
+}
+
+function decrypt(str,secret){
+    var decipher=crypto.createDecipher('aes192',secret);
+    var dec=decipher.update(str,'alex','utf8');
+    dec +=decipher.final('utf8');
+    return dec;
 }
